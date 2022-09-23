@@ -26,6 +26,10 @@ export default function useMenuTree() {
         if (!permission.accessRouter(element)) {
           return null;
         }
+        // 隐藏一级菜单
+        if (element.meta?.hideInMenu === true) {
+          return null;
+        }
 
         // leaf node
         if (element.meta?.hideChildrenInMenu || !element.children) {
