@@ -22,7 +22,7 @@
     <template #content>
       <a-doption :disabled="disabledReload" :value="Eaction.reload">
         <icon-refresh />
-        <span>重新加载</span>
+        <span>{{ $t('tabBar.tabitem.reload') }}</span>
       </a-doption>
       <a-doption
         class="sperate-line"
@@ -30,11 +30,11 @@
         :value="Eaction.current"
       >
         <icon-close />
-        <span>关闭当前标签页</span>
+        <span>{{ $t('tabBar.tabitem.current') }}</span>
       </a-doption>
       <a-doption :disabled="disabledLeft" :value="Eaction.left">
         <icon-to-left />
-        <span>关闭左侧标签页</span>
+        <span>{{ $t('tabBar.tabitem.left') }}</span>
       </a-doption>
       <a-doption
         class="sperate-line"
@@ -42,15 +42,15 @@
         :value="Eaction.right"
       >
         <icon-to-right />
-        <span>关闭右侧标签页</span>
+        <span>{{ $t('tabBar.tabitem.right') }}</span>
       </a-doption>
       <a-doption :value="Eaction.others">
         <icon-swap />
-        <span>关闭其它标签页</span>
+        <span>{{ $t('tabBar.tabitem.others') }}</span>
       </a-doption>
       <a-doption :value="Eaction.all">
         <icon-folder-delete />
-        <span>关闭全部标签页</span>
+        <span>{{ $t('tabBar.tabitem.all') }}</span>
       </a-doption>
     </template>
   </a-dropdown>
@@ -172,28 +172,35 @@
     color: var(--color-text-2);
     text-decoration: none;
   }
+
   .link-activated {
     color: rgb(var(--link-6));
+
     .tag-link {
       color: rgb(var(--link-6));
     }
+
     & + .arco-tag-close-btn {
       color: rgb(var(--link-6));
     }
   }
+
   :deep(.arco-dropdown-option-content) {
     span {
       margin-left: 10px;
     }
   }
+
   .arco-dropdown-open {
     .tag-link {
       color: rgb(var(--danger-6));
     }
+
     .arco-tag-close-btn {
       color: rgb(var(--danger-6));
     }
   }
+
   .sperate-line {
     border-bottom: 1px solid var(--color-neutral-3);
   }
