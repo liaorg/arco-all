@@ -1,10 +1,11 @@
 <template>
   <div class="login-form-wrapper">
     <div class="login-form-title">{{ $t('login.form.title') }}</div>
-    <div class="login-form-sub-title">{{ $t('login.form.title') }}</div>
+    <div class="login-form-sub-title">{{ $t('login.form.subtitle') }}</div>
     <div class="login-form-error-msg">{{ errorMessage }}</div>
     <a-form
       ref="loginForm"
+      autocomplete="off"
       :model="userInfo"
       class="login-form"
       layout="vertical"
@@ -18,7 +19,9 @@
       >
         <a-input
           v-model="userInfo.username"
+          autocomplete="off"
           :placeholder="$t('login.form.userName.placeholder')"
+          allow-clear
         >
           <template #prefix>
             <icon-user />
@@ -33,6 +36,7 @@
       >
         <a-input-password
           v-model="userInfo.password"
+          autocomplete="off"
           :placeholder="$t('login.form.password.placeholder')"
           allow-clear
         >
@@ -48,15 +52,11 @@
             :model-value="loginConfig.rememberPassword"
             @change="(setRememberPassword as any)"
           >
-            {{ $t('login.form.rememberPassword') }}
+            {{ $t('login.form.rememberUsername') }}
           </a-checkbox>
-          <a-link>{{ $t('login.form.forgetPassword') }}</a-link>
         </div>
         <a-button type="primary" html-type="submit" long :loading="loading">
           {{ $t('login.form.login') }}
-        </a-button>
-        <a-button type="text" long class="login-form-register-btn">
-          {{ $t('login.form.register') }}
         </a-button>
       </a-space>
     </a-form>
@@ -83,7 +83,7 @@
   const loginConfig = useStorage('login-config', {
     rememberPassword: true,
     username: 'admin', // 演示默认值
-    password: 'admin', // demo default value
+    password: '', // demo default value
   });
   const userInfo = reactive({
     username: loginConfig.value.username,
@@ -111,11 +111,11 @@
         });
         Message.success(t('login.form.login.success'));
         const { rememberPassword } = loginConfig.value;
-        const { username, password } = values;
+        const { username } = values;
         // 实际生产环境需要进行加密存储。
         // The actual production environment requires encrypted storage.
         loginConfig.value.username = rememberPassword ? username : '';
-        loginConfig.value.password = rememberPassword ? password : '';
+        // loginConfig.value.password = rememberPassword ? password : '';
       } catch (err) {
         errorMessage.value = (err as Error).message;
       } finally {

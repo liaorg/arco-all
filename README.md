@@ -118,7 +118,7 @@ git config --global user.name "username"
 git config --global user.email useremail@163.com
 ```
 
-### 提交规范
+## 提交规范
 
 git commit -m "type: subject"
 
@@ -133,6 +133,27 @@ test: 增加测试
 chore: 构建过程或辅助工具的变动
 revert: 回滚到上一个版本
 merge: 代码合并
+
+## settings.json 文件说明
+
+```json
+{
+  "theme": "light",
+  "colorWeak": false, // 色弱模式
+  "navbar": true, // 导航栏
+  "menu": true, // 菜单栏
+  "hideMenu": false,
+  "menuCollapse": false,
+  "footer": true, // 底部
+  "themeColor": "#165DFF",
+  "menuWidth": 200, // 菜单宽度
+  "globalSettings": false,
+  "device": "desktop",
+  "tabBar": true, // 多页签
+  "menuFromServer": false, // 菜单来源于后台
+  "serverMenu": []
+}
+```
 
 ## 配置 lanunch.json 进行应用调试
 
