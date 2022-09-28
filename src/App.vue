@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="locale" :update-at-scroll="false">
+  <a-config-provider :locale="locale" :update-at-scroll="true">
     <router-view />
   </a-config-provider>
 </template>

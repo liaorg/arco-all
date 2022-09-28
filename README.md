@@ -134,6 +134,8 @@ chore: 构建过程或辅助工具的变动
 revert: 回滚到上一个版本
 merge: 代码合并
 
+build, ci, perf
+
 ## settings.json 文件说明
 
 ```json
