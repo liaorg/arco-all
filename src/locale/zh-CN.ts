@@ -11,6 +11,7 @@ import localeUserInfo from '@/views/user/info/locale/zh-CN';
 import localeUserSetting from '@/views/user/setting/locale/zh-CN';
 
 import localeTabBar from '@/components/tab-bar/locale/zh-CN';
+import localRoles from '@/views/roles/locale/zh-CN';
 import localeSettings from './zh-CN/settings';
 
 export default {
@@ -18,6 +19,7 @@ export default {
   'menu.server.dashboard': '仪表盘-服务端',
   'menu.server.workplace': '工作台-服务端',
   'menu.user': '个人中心',
+  'menu.sysadmin.roles': '角色管理',
   'navbar.action.locale': '切换为中文',
   'navbar.action.logout': '注销登录成功',
   ...localeSettings,
@@ -31,4 +33,6 @@ export default {
   ...localeUserInfo,
   ...localeUserSetting,
   ...localeTabBar,
+
+  ...localRoles,
 };

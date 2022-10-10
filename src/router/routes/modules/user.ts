@@ -13,6 +13,16 @@ const USER: AppRouteRecordRaw = {
   },
   children: [
     {
+      path: 'roles',
+      name: 'Roles',
+      component: () => import('@/views/roles/index.vue'),
+      meta: {
+        locale: 'menu.sysadmin.roles',
+        requiresAuth: true,
+        roles: ['*'],
+      },
+    },
+    {
       path: 'info',
       name: 'Info',
       component: () => import('@/views/user/info/index.vue'),

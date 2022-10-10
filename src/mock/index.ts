@@ -8,6 +8,8 @@ import '@/views/dashboard/workplace/mock';
 import '@/views/user/info/mock';
 import '@/views/user/setting/mock';
 
+import '@/views/roles/mork';
+
 Mock.setup({
   timeout: '600-1000',
 });
